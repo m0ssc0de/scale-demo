@@ -7,7 +7,7 @@ require (
 	github.com/hashicorp/go-retryablehttp v0.7.1
 	github.com/itering/scale.go v1.2.5
 	github.com/itering/substrate-api-rpc v0.4.12
-	github.com/linxGnu/grocksdb v1.7.4
+	github.com/linxGnu/grocksdb v1.6.48
 	github.com/qdm12/gotree v0.2.0
 	golang.org/x/crypto v0.0.0-20220321153916-2c7772ba3064
 )

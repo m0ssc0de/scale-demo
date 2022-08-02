@@ -1,0 +1,10 @@
+{
+    "rocksdb_config": {
+      "rocksdb_path": "/chain-data/chains/moonbase_alpha/db/full",
+      "rocksdb_secondary_path": "/tmp/rocksdb"
+    },
+    "chain_config": {
+      "http_rpc_endpoint": "http://node-6957173183681040384-svc:9933",
+      "decoder_types_file": "moonbeam.json"
+    }
+  }

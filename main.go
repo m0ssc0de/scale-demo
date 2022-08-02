@@ -26,18 +26,11 @@ func main() {
 		dictionaryConfiguration = config.LoadConfig(&configFilePath)
 	}
 
-	if batchBlock == 0 {
-		orchestrator := clients.NewOrchestrator(dictionaryConfiguration)
-		defer orchestrator.Close()
-
-		orchestrator.Run()
-	} else {
-		bareClient := clients.NewBareClient(dictionaryConfiguration)
-		messages.NewDictionaryMessage(
-			messages.LOG_LEVEL_INFO, "", nil,
-			// "Last msg %v", bareClient.RawEventOfBlock(batchBlock),
-			// "Last msg %v", bareClient.GetMetadataFromUpstream(batchBlock),
-			"Last msg %v", bareClient.EventOfBlock(batchBlock),
-		).ConsoleLog()
-	}
+	bareClient := clients.NewBareClient(dictionaryConfiguration)
+	messages.NewDictionaryMessage(
+		messages.LOG_LEVEL_INFO, "", nil,
+		// "Last msg %v", bareClient.RawEventOfBlock(batchBlock),
+		// "Last msg %v", bareClient.GetMetadataFromUpstream(batchBlock),
+		"Last msg %v", bareClient.EventOfBlock(batchBlock),
+	).ConsoleLog()
 }

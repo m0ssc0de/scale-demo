@@ -371,8 +371,8 @@ github.com/libp2p/go-yamux v1.3.3/go.mod h1:FGTiPvoV/3DVdgWpX+tM0OW3tsM+W5bSE3gZ
 github.com/libp2p/go-yamux v1.3.5/go.mod h1:FGTiPvoV/3DVdgWpX+tM0OW3tsM+W5bSE3gZwqQTcow=
 github.com/libp2p/go-yamux v1.3.7/go.mod h1:fr7aVgmdNGJK+N1g+b6DW6VxzbRCjCOejR/hkmpooHE=
 github.com/libp2p/go-yamux v1.4.0/go.mod h1:fr7aVgmdNGJK+N1g+b6DW6VxzbRCjCOejR/hkmpooHE=
-github.com/linxGnu/grocksdb v1.7.4 h1:RCdeq0Y9jsDkRtFcgWclRrpL/AFEMQhPyOp6OIprOGc=
-github.com/linxGnu/grocksdb v1.7.4/go.mod h1:G4zrMNj2CP2aCXF61jbmZH81tu+kU3qU4rYpOU8WOL8=
+github.com/linxGnu/grocksdb v1.6.48 h1:ZxiuYZndF2iUeThQmgvelPtOHCBr6LMSigymoqY7wtM=
+github.com/linxGnu/grocksdb v1.6.48/go.mod h1:JcMMDBFaDNhRXFYcYXmgQwb/RarSld1PulTI7UzE+w0=
 github.com/magiconair/properties v1.8.0/go.mod h1:PppfXfuXeibc/6YijjN8zIbojt8czPbwD3XqdrwzmxQ=
 github.com/mailru/easyjson v0.0.0-20180823135443-60711f1a8329/go.mod h1:C1wdFJiN94OJF2b5HbByQZoLdCWB1Yqtg26g4irojpc=
 github.com/mattn/go-colorable v0.0.9/go.mod h1:9vuHe8Xs5qXnSaW/c/ABM9alt+Vo+STaOChaDxuIBZU=
