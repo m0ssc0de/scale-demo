@@ -21,4 +21,4 @@ Or by the `nix`, just run `nix-shell` at the root of this project.
 
 This demo just use the fields `rocksdb_config`, `chain_config` in `config.json`.
 
-`-b 946237` is one block caouse the error/panic, `panic: Vec length 678189135 exceeds 50000 with subType Hash`
+`-b 946237` is one block caouse the error/panic, `panic: Vec length 678189135 exceeds 50000 with subType Hash`. The other are `958672`, `958693` on Moonbase Alpha network.
