@@ -22,3 +22,7 @@ Or by the `nix`, just run `nix-shell` at the root of this project.
 This demo just use the fields `rocksdb_config`, `chain_config` in `config.json`.
 
 `-b 946237` is one block caouse the error/panic, `panic: Vec length 678189135 exceeds 50000 with subType Hash`. The other are `958672`, `958693` on Moonbase Alpha network.
+
+## minimal scripts
+
+There is a `main.go` in `./onlyScale`. It only call scale lib with prepare raw data. One works well, block 946236. One doesn't work, block 946237.
