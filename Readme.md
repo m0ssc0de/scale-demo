@@ -3,7 +3,7 @@
 This project is used to debug issue blocks with `https://github.com/itering/scale.go`.
 The way is minimal usage of `https://github.com/subquery/go-subql-substrate-dictionary`.
 
-By testing, there are 3 blocks have issue to decode. Not sure what went wrong so far.
+By testing, there are 3 blocks on Moonbase Alpha network have issue to decode. Not sure what went wrong so far.
 
 ## how to build static binary
 
