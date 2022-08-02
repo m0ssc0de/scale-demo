@@ -190,7 +190,11 @@ func (b BareClient) EventOfBlock(blockHeight int) int {
 	eventDecoder := scalecodec.EventsDecoder{}
 	eventDecoderOption := types.ScaleDecoderOption{Metadata: nil, Spec: -1}
 	rawEvents := b.RawEventOfBlock(blockHeight)
+	fmt.Println("rawEvents")
+	fmt.Println(rawEvents)
 	specNum := b.GetSpecVersionFromUpstream(blockHeight)
+	fmt.Println("specNum")
+	fmt.Println(specNum)
 	metadata := b.GetMetadataFromUpstream(blockHeight)
 	eventDecoderOption.Metadata = &metadata
 	eventDecoderOption.Spec = specNum
@@ -299,6 +303,8 @@ func (b BareClient) GetMetadataFromUpstream(blockHeight int) types.MetadataStruc
 		).ConsoleLog()
 	}
 	metaBodyString, err := metaRawBody.ToString()
+	fmt.Println("metaBodyString")
+	fmt.Println(metaBodyString)
 	if err != nil {
 		messages.NewDictionaryMessage(
 			messages.LOG_LEVEL_ERROR,
