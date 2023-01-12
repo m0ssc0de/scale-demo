@@ -2,6 +2,7 @@ package main
 
 import (
 	"flag"
+	"fmt"
 	"go-dictionary/internal/clients"
 	"go-dictionary/internal/config"
 	"go-dictionary/internal/messages"
@@ -27,10 +28,6 @@ func main() {
 	}
 
 	bareClient := clients.NewBareClient(dictionaryConfiguration)
-	messages.NewDictionaryMessage(
-		messages.LOG_LEVEL_INFO, "", nil,
-		// "Last msg %v", bareClient.RawEventOfBlock(batchBlock),
-		// "Last msg %v", bareClient.GetMetadataFromUpstream(batchBlock),
-		"Last msg %v", bareClient.EventOfBlock(batchBlock),
-	).ConsoleLog()
+	fmt.Println("Try ex ", bareClient.ExtrinsicOfBlock(batchBlock))
+	fmt.Println("Try event ", bareClient.EventOfBlock(batchBlock))
 }

@@ -235,6 +235,58 @@ func (b BareClient) EventOfBlock(blockHeight int) int {
 	return eventsCounter
 }
 
+const (
+	bodyTypeString = "Vec<Bytes>"
+)
+
+func (b BareClient) ExtrinsicOfBlock(blockHeight int) int {
+	bodyDecoder := types.ScaleDecoder{}
+	extrinsicDecoder := scalecodec.ExtrinsicDecoder{}
+	extrinsicDecoderOption := types.ScaleDecoderOption{Metadata: nil, Spec: -1}
+	rawBodyData := b.RawBodyOfBlock(blockHeight)
+	bodyDecoder.Init(types.ScaleBytes{Data: rawBodyData}, nil)
+	decodedBody := bodyDecoder.ProcessAndUpdateData(bodyTypeString)
+	bodyList, ok := decodedBody.([]interface{})
+	if !ok {
+		messages.NewDictionaryMessage(
+			messages.LOG_LEVEL_ERROR,
+			"",
+			nil,
+			messages.FAILED_TYPE_ASSERTION,
+		).ConsoleLog()
+	}
+	specNum := b.GetSpecVersionFromUpstream(blockHeight)
+	metadata := b.GetMetadataFromUpstream(blockHeight)
+	extrinsicDecoderOption.Metadata = &metadata
+	extrinsicDecoderOption.Spec = specNum
+	offset := 0
+	reg4RawEx := ""
+	defer func() {
+		if err := recover(); err != nil {
+			fmt.Println("idx: ", offset, "rawExtrinsic: ", reg4RawEx)
+			panic(err)
+		}
+	}()
+	fmt.Println("bodyList size: ", len(bodyList))
+	for idx, bodyInterface := range bodyList {
+		fmt.Println("idx:", idx)
+		rawExtrinsic, ok := bodyInterface.(string)
+		if !ok {
+			messages.NewDictionaryMessage(
+				messages.LOG_LEVEL_ERROR,
+				"",
+				nil,
+				messages.FAILED_TYPE_ASSERTION,
+			).ConsoleLog()
+			extrinsicDecoder.Init(types.ScaleBytes{Data: utiles.HexToBytes(rawExtrinsic)}, &extrinsicDecoderOption)
+			reg4RawEx = rawExtrinsic
+			offset = idx
+			extrinsicDecoder.Process()
+		}
+	}
+	return 0
+}
+
 var (
 	SPEC_VERSION_MESSAGE = `{"id":1,"method":"chain_getRuntimeVersion","params":["%s"],"jsonrpc":"2.0"}`
 	hexPrefix            = "0x"
